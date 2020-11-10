@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Калькулятор курсової роботи ТКЛ-4</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+</head>
+
+<body style="overflow-x: hidden;">
+    <section class="header-data">
+        <div class="container-fluid">
+            <!-- ВВІД ДАНИХ -->
+            <div class="data">
+                <div class="data-title">
+                    <p class="title">Введення даних варіанту</p>
+                    <div style="text-align: center;">
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data">Ввести дані варіанту</button>
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-bodia">Ввести дані варіанту Боді</button>
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-vlad">Ввести дані варіанту Влада</button>
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-sanya">Ввести дані варіанту Сані</button>
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-sergo">Ввести дані варіанту Серго</button>
+                    </div>
+                </div>
+                <div class="data-input">
+                    <input class="input_area" type="text" id="vizok" placeholder="База візка (2a, м)" style="outline: none;">
+                    <input class="input_area" type="text" id="engine_w" placeholder="Вага двигуна (Pd, кН)" style="outline: none;">
+                    <input class="input_area" type="text" id="radius" placeholder="Радіус кривої (ρм, кН)" style="outline: none;">
+                    <input class="input_area" type="text" id="rail_height" placeholder="Підвищення рейки (h, мм)" style="outline: none;">
+                    <input class="input_area" type="text" id="jorst-pruj" placeholder="Жорсткість пружини (Жпр, кН / м)" style="outline: none;">
+                    <input class="input_area" type="text" id="a_1a_2" placeholder=" (a1 = a2, мм)" style="outline: none;">
+                    <input class="input_area" type="text" id="jorst-ressor" placeholder="Жорсткість лист. рессори (Жр, кН / м)" style="outline: none;">
+                    <input class="input_area" type="text" id="b_3b_4" placeholder=" (b3 = b4, мм)" style="outline: none;">
+                    <input class="input_area" type="text" id="b_5" placeholder=" (b5, мм)" style="outline: none;">
+                    <input class="input_area" type="text" id="2P" placeholder="Навантаження на вісь (2П, кН)" style="outline: none;">
+                    <input class="input_area" type="text" id="interval1" placeholder="i1" style="outline: none;">
+                    <input class="input_area" type="text" id="interval2" placeholder="i2" style="outline: none;">
+                    <input class="input_area" type="text" id="interval3" placeholder="i3" style="outline: none;">
+                    <input class="input_area" type="text" id="interval4" placeholder="i4" style="outline: none;">
+                    <input class="input_area" type="text" id="interval5" placeholder="i5" style="outline: none;">
+                    <p style="color: white;">Результат: <input class="input_area" style="position: relative; left: 1vw;" type="text" id="result" placeholder="" style="outline: none;">
+                </div>
+            </div>
+            <!-- РОЗДІЛ 1-->
+            <div class="rozdil-1">
+                <p class="title">Розділ 1</p>
+                <button style="outline: none;" id="calculate-1" class="calculate">Вирахувати</button>
+                <div class="calc-1">
+                    <input class="input_area" type="text" id="ll" placeholder="Розрахункова довжина боковини 2l = " style="outline: none;">
+                    <input class="input_area" type="text" id="xp_1" placeholder="xp1 = " style="outline: none;">
+                    <input class="input_area" type="text" id="xp_2" placeholder="xp2 = " style="outline: none;">
+                    <input class="input_area" type="text" id="xP_1" placeholder="xп1 = " style="outline: none;">
+                    <input class="input_area" type="text" id="xP_2" placeholder="xп2 = " style="outline: none;">
+                    <input class="input_area" type="text" id="xg" placeholder="хд = " style="outline: none;">
+                </div>
+            </div>
+            <!-- РОЗДІЛ 2-->
+            <div class="rozdil-2">
+                <p class="title">Розділ 2</p>
+                <div class="calc-2">
+                    <table class="r2-table">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">
+                                    № елем <br> 1
+                                </td>
+                                <td>a <sub>i</sub> </td>
+                                <td>b <sub>i</sub></td>
+                                <td>F <sub>i</sub></td>
+                                <td>Z<sub>i</sub> <sup>i</td>
+                                <td>S <sub>yt</sub></td>
+                                <td>z <sub>i</sub></td>
+                                <td>z <sub>i</sub> <sup>2</sup> * F <sub>i</sub></td>
+                                <td>J <sub>y0,i</sub></td>
+                                <td>J <sub>yi</sub></td>
+                            </tr>
+                            <tr>
+                                <td>см <br> 2</td>
+                                <td>см <br> 3</td>
+                                <td>см<sup>2</sup> <br> 4</td>
+                                <td>см <br> 5</td>
+                                <td>см<sup>3</sup> <br> 6</td>
+                                <td>см <br> 7</td>
+                                <td>см<sup>4</sup> <br> 8</td>
+                                <td>см<sup>4</sup> <br> 9</td>
+                                <td>см<sup>4</sup> <br> 10</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><span id="a1-text"></span></td>
+                                <td><span id="b1-text"></span></td>
+                                <td><span id="fi1-text"></span></td>
+                                <td><span id="z1-text"></span></td>
+                                <td><span id="s1-text"></span></td>
+                                <td><span id="zi1-text"></span></td>
+                                <td><span id="Z1F1-text"></span></td>
+                                <td><span id="jy01-text"></span></td>
+                                <td><span id="jy1-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><span id="a2-text"></span></td>
+                                <td><span id="b2-text"></span></td>
+                                <td><span id="fi2-text"></span></td>
+                                <td><span id="z2-text"></span></td>
+                                <td><span id="s2-text"></span></td>
+                                <td><span id="zi2-text"></span></td>
+                                <td><span id="Z2F2-text"></span></td>
+                                <td><span id="jy02-text"></span></td>
+                                <td><span id="jy2-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><span id="a3-text"></span></td>
+                                <td><span id="b3-text"></span></td>
+                                <td><span id="fi3-text"></span></td>
+                                <td><span id="z3-text"></span></td>
+                                <td><span id="s3-text"></span></td>
+                                <td><span id="zi3-text"></span></td>
+                                <td><span id="Z3F3-text"></span></td>
+                                <td><span id="jy03-text"></span></td>
+                                <td><span id="jy3-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><span id="a4-text"></span></td>
+                                <td><span id="b4-text"></span></td>
+                                <td><span id="fi4-text"></span></td>
+                                <td><span id="z4-text"></span></td>
+                                <td><span id="s4-text"></span></td>
+                                <td><span id="zi4-text"></span></td>
+                                <td><span id="Z4F4-text"></span></td>
+                                <td><span id="jy04-text"></span></td>
+                                <td><span id="jy4-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><span id="a5-text"></span></td>
+                                <td><span id="b5-text"></span></td>
+                                <td><span id="fi5-text"></span></td>
+                                <td><span id="z5-text"></span></td>
+                                <td><span id="s5-text"></span></td>
+                                <td><span id="zi5-text"></span></td>
+                                <td><span id="Z5F5-text"></span></td>
+                                <td><span id="jy05-text"></span></td>
+                                <td><span id="jy5-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Σ</td>
+                                <td><span id="summa21_1-text"></span></td>
+                                <td><span id="summa21_2-text"></span></td>
+                                <td><span id="summa21_3-text"></span></td>
+                                <td><span id="summa21_4-text"></span></td>
+                                <td><span id="summa21_5-text"></span></td>
+                                <td><span id="summa21_6-text"></span></td>
+                                <td><span id="summa21_7-text"></span></td>
+                                <td><span id="summa21_8-text"></span></td>
+                                <td><span id="summa21_9-text"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 5vw;">Таблиця 2.2</p>
+            <div class="rozdil-2">
+                <div class="calc-2">
+                    <table class="r2-table">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">
+                                    № елем <br> 1
+                                </td>
+                                <td>a <sub>i</sub> </td>
+                                <td>b <sub>i</sub></td>
+                                <td>F <sub>i</sub></td>
+                                <td>y<sub>i</sub></td>
+                                <td>y <sub>i</sub> <sup>2</sup> * F <sub>i</sub></td>
+                                <td>J <sub>z0,i</sub></td>
+                                <td>J <sub>zi</sub></td>
+                            </tr>
+                            <tr>
+                                <td>см <br> 2</td>
+                                <td>см <br> 3</td>
+                                <td>см<sup>2</sup> <br> 4</td>
+                                <td>см <br> 5</td>
+                                <td>см<sup>4</sup> <br> 6</td>
+                                <td>см<sup>4</sup> <br> 7</td>
+                                <td>см<sup>4</sup> <br> 8</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><span id="2a1-text"></span></td>
+                                <td><span id="2b1-text"></span></td>
+                                <td><span id="2fi1-text"></span></td>
+                                <td><span id="y1-text"></span></td>
+                                <td><span id="y2f1-text"></span></td>
+                                <td><span id="Jz0i1-text"></span></td>
+                                <td><span id="Jzi1-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><span id="2a2-text"></span></td>
+                                <td><span id="2b2-text"></span></td>
+                                <td><span id="2fi2-text"></span></td>
+                                <td><span id="y2-text"></span></td>
+                                <td><span id="y2f2-text"></span></td>
+                                <td><span id="Jz0i2-text"></span></td>
+                                <td><span id="Jzi2-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><span id="2a3-text"></span></td>
+                                <td><span id="2b3-text"></span></td>
+                                <td><span id="2fi3-text"></span></td>
+                                <td><span id="y3-text"></span></td>
+                                <td><span id="y2f3-text"></span></td>
+                                <td><span id="Jz0i3-text"></span></td>
+                                <td><span id="Jzi3-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><span id="2a4-text"></span></td>
+                                <td><span id="2b4-text"></span></td>
+                                <td><span id="2fi4-text"></span></td>
+                                <td><span id="y4-text"></span></td>
+                                <td><span id="y2f4-text"></span></td>
+                                <td><span id="Jz0i4-text"></span></td>
+                                <td><span id="Jzi4-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><span id="2a5-text"></span></td>
+                                <td><span id="2b5-text"></span></td>
+                                <td><span id="2fi5-text"></span></td>
+                                <td><span id="y5-text"></span></td>
+                                <td><span id="y2f5-text"></span></td>
+                                <td><span id="Jz0i5-text"></span></td>
+                                <td><span id="Jzi5-text"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Σ</td>
+                                <td><span id="summa22_1-text"></span></td>
+                                <td><span id="summa22_2-text"></span></td>
+                                <td><span id="summa22_3-text"></span></td>
+                                <td><span id="summa22_4-text"></span></td>
+                                <td><span id="summa22_5-text"></span></td>
+                                <td><span id="summa22_6-text"></span></td>
+                                <td><span id="summa22_7-text"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="r2-table" style="position: relative; top: 3vw;">
+                        <tr>
+                            <td>WyA = <span id="WyA-text"></span></td>
+                            <td>zmax = <span id="zmax-text"></span></td>
+                        </tr>
+                        <tr>
+                            <td>WzA = <span id="WzA-text"></span></td>
+                            <td>ymax = <span id="Ymax-text"></span></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 10vw;">Розділ 3</p>
+            <div class="rozdil-3" style="position: relative; top: 15vw;">
+                <table style="color: white;">
+                    <tr>
+                        <td>q = <span id="q-text"></span></td>
+                        <td>Pб = <span id="Pb-text"></span></td>
+                        <td>Pш = <span id="Psh-text"></span></td>
+                        <td>Pкб = <span id="Pkb-text"></span></td>
+                        <td>Pр = <span id="Pp-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Pнп = <span id="Pnp-text"></span></td>
+                        <td>Pв = <span id="Pv-text"></span></td>
+                        <td>Pк = <span id="Pkuzova_k-text"></span></td>
+                        <td>Pп = <span id="Ppidres-text"></span></td>
+                        <td>Rв = <span id="Rb-text"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 20vw;">Розділ 4</p>
+            <div class="rozdil-4" style="position: relative; top: 22vw;">
+                <p style="color: white; font-size: 1.2vw;">Myb = <span id="Myb-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="sigmav1-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="Rb-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="xp_1-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="xp_2-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="q-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="l-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="b-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="Pkuzova_k-text"></span></p>
+                <p style="color: white; font-size: 1.2vw;">𝜎в1 = <span id="xk-text"></span></p>
+            </div>
+            <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 22vw;">Розділ 5</p>
+            <div class="rozdil-4" style="position: relative; top: 22vw;">
+                <p style="color: white; font-size: 1.2vw;">P1 = P2 = P3 = P4 = P5 = <span id="P1-text"></span></p>
+                <!-- ТАБЛИЧКА 5.1-->
+                <table style="color: white; position: relative; right: 0vw;">
+                    <tr>
+                        <td>Розрахункова величина</td>
+                        <td colspan="6"> Полюсна відстань, Xc, м</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>Xc</td>
+                        <td>0,5</td>
+                        <td>1,0</td>
+                        <td>1,25</td>
+                        <td>1,5</td>
+                        <td>1,75</td>
+                    </tr>
+                    <tr>
+                        <td>x1 = xc + a</td>
+                        <td><span id="x1_xc1-text"></span></td>
+                        <td><span id="x1_xc2-text"></span></td>
+                        <td><span id="x1_xc3-text"></span></td>
+                        <td><span id="x1_xc4-text"></span></td>
+                        <td><span id="x1_xc5-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>d1 = √(x<sub>1</sub><sup>2</sup> + s<sup>2</sup>)</td>
+                        <td><span id="d1_xc1-text"></span></td>
+                        <td><span id="d1_xc2-text"></span></td>
+                        <td><span id="d1_xc3-text"></span></td>
+                        <td><span id="d1_xc4-text"></span></td>
+                        <td><span id="d1_xc5-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>cos a1 = x1 / d1</td>
+                        <td><span id="cosa1_xc1-text"></span></td>
+                        <td><span id="cosa1_xc2-text"></span></td>
+                        <td><span id="cosa1_xc3-text"></span></td>
+                        <td><span id="cosa1_xc4-text"></span></td>
+                        <td><span id="cosa1_xc5-text"></span></td>
+
+                    </tr>
+                    <tr>
+                        <td>х2 = хс - а</td>
+                        <td><span id="x2_xc1-text"></span></td>
+                        <td><span id="x2_xc2-text"></span></td>
+                        <td><span id="x2_xc3-text"></span></td>
+                        <td><span id="x2_xc4-text"></span></td>
+                        <td><span id="x2_xc5-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>d2 = √(x<sub>2</sub><sup>2</sup> + s<sup>2</sup>)</td>
+                        <td><span id="d2_xc1-text"></span></td>
+                        <td><span id="d2_xc2-text"></span></td>
+                        <td><span id="d2_xc3-text"></span></td>
+                        <td><span id="d2_xc4-text"></span></td>
+                        <td><span id="d2_xc5-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>cos a2 = x2 / d2</td>
+                        <td><span id="cosa2_xc1-text"></span></td>
+                        <td><span id="cosa2_xc2-text"></span></td>
+                        <td><span id="cosa2_xc3-text"></span></td>
+                        <td><span id="cosa2_xc4-text"></span></td>
+                        <td><span id="cosa2_xc5-text"></span></td>
+
+                    </tr>
+                    <tr>
+                        <td>∑ cos ai = x1/d1 + x2/d2</td>
+                        <td><span id="cosai_xc1-text"></span></td>
+                        <td><span id="cosai_xc2-text"></span></td>
+                        <td><span id="cosai_xc3-text"></span></td>
+                        <td><span id="cosai_xc4-text"></span></td>
+                        <td><span id="cosai_xc5-text"></span></td>
+
+                    </tr>
+                    <tr>
+                        <td>xc * (x1/d1 + x2 / d2) = A1</td>
+                        <td><span id="A1_xc1-text"></span></td>
+                        <td><span id="A1_xc2-text"></span></td>
+                        <td><span id="A1_xc3-text"></span></td>
+                        <td><span id="A1_xc4-text"></span></td>
+                        <td><span id="A1_xc5-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>d1 + d2</td>
+                        <td><span id="d_summa_xc1-text"></span></td>
+                        <td><span id="d_summa_xc2-text"></span></td>
+                        <td><span id="d_summa_xc3-text"></span></td>
+                        <td><span id="d_summa_xc4-text"></span></td>
+                        <td><span id="d_summa_xc5-text"></span></td>
+
+                    </tr>
+                    <tr>
+                        <td>(d1 + d2) - A1 = A2</td>
+                        <td><span id="A2_xc1-text"></span></td>
+                        <td><span id="A2_xc2-text"></span></td>
+                        <td><span id="A2_xc3-text"></span></td>
+                        <td><span id="A2_xc4-text"></span></td>
+                        <td><span id="A2_xc5-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Y1 = A2 * (f * 2П) / а</td>
+                        <td><span id="Y1_xc1-text"></span></td>
+                        <td><span id="Y1_xc2-text"></span></td>
+                        <td><span id="Y1_xc3-text"></span></td>
+                        <td><span id="Y1_xc4-text"></span></td>
+                        <td><span id="Y1_xc5-text"></span></td>
+                    </tr>
+                </table>
+                <input class="input_area" style="position: relative; top: 1vw;" type="text" id="xcd" placeholder="xcд = " style="outline: none;">
+                <p style="color: white; font-size: 1vw;">[За умовою безпеки руху] Швидкість в кривій: <span id="Vd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">C = <span id="C-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[За умовою безпеки руху] Швидкість в кривій з підняттям зовнішньої рейки: <span id="Vdp-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[За умовою комфортної їзди] Швидкість в кривій: <span id="Vdk-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[За умовою комфортної їзди] Швидкість в кривій з підняттям зовнішньої рейки: <span id="Vdpk-text"></span></p>
+            </div>
+            <div class="rozdil-6">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 6</p>
+                <p style="color: white; font-size: 1vw;">Cпд = <span id="Cpd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Cпд (з підвищенням) = <span id="Cpd_h-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Cпд (з підвищенням v = 100, r = 600) = <span id="Cpd_h_k-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Rc = <span id="Rc-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Rc (з підвищенням) = <span id="Rc_h-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Rc (з підвищенням v = 100, r = 600) = <span id="Rc_h_k-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Hc = <span id="Hc-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Hc (з підвищенням) = <span id="Hc_h-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Hc (з підвищенням v = 100, r = 600) = <span id="Hc_h_k-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Np1 = <span id="Np1-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Np2 = <span id="Np2-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Hp = <span id="Hp-text"></span></p>
+            </div>
+            <div class="rozdil-7">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 7</p>
+                <p style="color: white; font-size: 1vw;">My = <span id="My-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Mz = <span id="Mz-text"></span></p>
+                <p style="color: white; font-size: 1vw;">sigma-y-кр = <span id="sigma_y-text"></span></p>
+                <p style="color: white; font-size: 1vw;">sigma-z-кр = <span id="sigma_z-text"></span></p>
+                <p style="color: white; font-size: 1vw;">sigma-кр = <span id="sigma_kr-text"></span></p>
+            </div>
+            <div class="rozdil-8">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 8</p>
+                <p style="color: white; font-size: 1vw;">[V = 0] Fд = <span id="v0_fd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = 0] Pdt = <span id="v0_pdt-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = 100] Fд = <span id="v_100-vd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = 100] Pdt = <span id="v_100-pdt-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vd] Fд = <span id="vd_fd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vd] Pdt = <span id="vd_pdt-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vpd] Fд = <span id="vdp_fd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vpd] Pdt = <span id="vdp_pdt-text"></span></p>
+                <br>
+                <p style="color: white; font-size: 1vw;">[V = 0] Rt = <span id="Rt_0-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = 100] Rt = <span id="Rt_100-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vd] Rt = <span id="Rt_Vd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vdp] Rt = <span id="Rt_Vdp-text"></span></p>
+            </div>
+            <div class="rozdil-9">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 9</p>
+                <p style="color: white; font-size: 1vw;">[V = 0] Myt = <span id="Myt_0-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = 100] Myt = <span id="Myt_100-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vd] Myt = <span id="Myt_Vd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vdp] Myt = <span id="Myt_Vdp-text"></span></p>
+                <br>
+                <p style="color: white; font-size: 1vw;">[V = 0] σтг = <span id="sigma_0-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = 100] σтг = <span id="sigma_100-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vd] σтг = <span id="sigma_Vd-text"></span></p>
+                <p style="color: white; font-size: 1vw;">[V = Vdp] σтг = <span id="sigma_Vdp-text"></span></p>
+            </div>
+            <div class="rozdil-10">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 10</p>
+                <p style="color: white; font-size: 1vw;">∆f = <span id="delta-f-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Екв. жорсткість = <span id="ekv_jorst-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Же1 = <span id="once_jorst-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Rкс = <span id="Rks-text"></span></p>
+            </div>
+    </section>
+</body>
+
+</html>
