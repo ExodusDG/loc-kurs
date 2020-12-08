@@ -12,6 +12,11 @@ $(document).ready(function() {
         $('#b_5').val('20');
         $('#2P').val('250');
         $('#xcd').val('1.67');
+        $('#interval1').val('0.1');
+        $('#interval2').val('0.1');
+        $('#interval3').val('0.6');
+        $('#interval4').val('0.1');
+        $('#interval5').val('0.1');
 
     });
 
@@ -28,21 +33,12 @@ $(document).ready(function() {
         $('#b_5').val('18');
         $('#2P').val('245');
         $('#xcd').val('1.68'); //ВИЗНАЧИТИ
+        $('#interval1').val('0');
+        $('#interval2').val('0.1');
+        $('#interval3').val('0.6');
+        $('#interval4').val('0.2');
+        $('#interval5').val('0.1');
 
-    });
-    // ВВЕДЕННЯ ДАНИХ ВАРІАНТУ ВЛАДА
-    $('#var-data-vlad').click(function() {
-        $('#vizok').val('2.95');
-        $('#engine_w').val('47');
-        $('#radius').val('375');
-        $('#rail_height').val('50');
-        $('#jorst-pruj').val('2200');
-        $('#a_1a_2').val('14');
-        $('#jorst-ressor').val('1400');
-        $('#b_3b_4').val('12');
-        $('#b_5').val('16');
-        $('#2P').val('240');
-        $('#xcd').val('1.62'); //ВИЗНАЧИТИ
     });
     // ВВЕДЕННЯ ДАНИХ ВАРІАНТУ САНІ
     $('#var-data-sanya').click(function() {
@@ -55,12 +51,24 @@ $(document).ready(function() {
         $('#jorst-ressor').val('1600');
         $('#b_3b_4').val('10');
         $('#b_5').val('18');
-        $('#2P').val('245');
-        $('#xcd').val('1.7'); //ВИЗНАЧИТИ
+        $('#2P').val('230');
+        $('#xcd').val('1.62'); //ВИЗНАЧИТИ
+    });
+    $('#var-data-dimon').click(function() {
+        $('#vizok').val('3.05');
+        $('#engine_w').val('43.5');
+        $('#radius').val('350');
+        $('#rail_height').val('50');
+        $('#jorst-pruj').val('2350');
+        $('#a_1a_2').val('16');
+        $('#jorst-ressor').val('1200');
+        $('#b_3b_4').val('10');
+        $('#b_5').val('20');
+        $('#2P').val('250');
+        $('#xcd').val('1.67'); //ВИЗНАЧИТИ
     });
     // ВВЕДЕННЯ ДАНИХ ВАРІАНТУ СЄРЬОГІ
     $('#var-data-sergo').click(function() {
-        $('#vizok').val('3.10');
         $('#engine_w').val('45');
         $('#radius').val('325');
         $('#rail_height').val('100');
@@ -70,7 +78,13 @@ $(document).ready(function() {
         $('#b_3b_4').val('12');
         $('#b_5').val('16');
         $('#2P').val('240');
-        $('#xcd').val('1.7'); //ВИЗНАЧИТИ
+        $('#xcd').val('1.64'); //ВИЗНАЧИТИ
+        $('#vizok').val('3.10');
+        $('#interval1').val('0');
+        $('#interval2').val('0.1');
+        $('#interval3').val('0.6');
+        $('#interval4').val('0.2');
+        $('#interval5').val('0.1');
     });
     //РОЗДІЛ 1
     $('#calculate-1').click(function() {
@@ -170,6 +184,7 @@ $(document).ready(function() {
         $('#zi3-text').text(zi3);
         $('#zi4-text').text(zi4);
         $('#zi5-text').text(zi5);
+
 
         //ZiFi
         var z1f1 = zi1 * zi1 * fi1;
@@ -594,7 +609,7 @@ $(document).ready(function() {
         $('#Mz-text').text(Mz.toFixed(4));
         var sigma_y = My / WyA;
         $('#sigma_y-text').text(sigma_y.toFixed(4));
-        var sigma_z = Mz / WyA;
+        var sigma_z = Mz / WzA;
         $('#sigma_z-text').text(sigma_z.toFixed(4));
         var sigma_kr = sigma_y + sigma_z; //сумма
         $('#sigma_kr-text').text(sigma_kr.toFixed(4));
@@ -605,22 +620,22 @@ $(document).ready(function() {
         var Ld = 1.2;
 
         // V = 0 //
-        var Fd = (0.28 + (3 / 50 + (20 * 0)) - 0.0007 * 0) * PP;
+        var Fd = (0.28 + (4 / 50 + (6 * 0)) - 0.0006 * 0) * PP; //ЗМІННИЙ
         $('#v0_fd-text').text(Fd.toFixed(4));
         var Pdt = 0.52 * Fd;
         $('#v0_pdt-text').text(Pdt.toFixed(4));
         // V = 100 //
-        var Fd_100 = ((0.28 + (3 / (50 + (20 * 100)))) - 0.07) * PP;
+        var Fd_100 = ((0.28 + (4 / (50 + (6 * 100)))) - 0.06) * PP;
         $('#v_100-vd-text').text(Fd_100.toFixed(4));
         var Pdt_100 = 0.52 * Fd_100;
         $('#v_100-pdt-text').text(Pdt_100.toFixed(4));
         // V = Vд (без підвищення) //
-        var Fd_vd = ((0.28 + (3 / (50 + (20 * Vd)))) - 0.0007 * Vd) * PP;
+        var Fd_vd = ((0.28 + (4 / (50 + (6 * Vd)))) - 0.0006 * Vd) * PP;
         $('#vd_fd-text').text(Fd_vd.toFixed(4));
         var Pdt_vd = 0.52 * Fd_vd;
         $('#vd_pdt-text').text(Pdt_vd.toFixed(4));
         // V = Vдп (з підвищенням) //
-        var Fd_vdp = ((0.28 + (3 / (50 + (20 * Vdp)))) - 0.0007 * Vdp) * PP;
+        var Fd_vdp = ((0.28 + (4 / (50 + (6 * Vdp)))) - 0.0006 * Vdp) * PP;
         $('#vdp_fd-text').text(Fd_vdp.toFixed(4));
         var Pdt_vdp = 0.52 * Fd_vdp;
         $('#vdp_pdt-text').text(Pdt_vdp.toFixed(4));
@@ -659,19 +674,19 @@ $(document).ready(function() {
         //SigmaTG
         //V = 0
         var sigma_tg_0 = Myt_0 / WyA;
-        $('#sigma_0-text').text(sigma_tg_0.toFixed(4));
+        $('#sigma_0-text').text(sigma_tg_0);
 
         //V = 100
         var sigma_tg_100 = Myt_100 / WyA;
-        $('#sigma_100-text').text(sigma_tg_100.toFixed(4));
+        $('#sigma_100-text').text(sigma_tg_100);
 
         //V = Vd
         var sigma_tg_Vd = Myt_Vd / WyA;
-        $('#sigma_Vd-text').text(sigma_tg_Vd.toFixed(4));
+        $('#sigma_Vd-text').text(sigma_tg_Vd);
 
         //V = Vdp
         var sigma_tg_Vdp = Myt_Vdp / WyA;
-        $('#sigma_Vdp-text').text(sigma_tg_Vdp.toFixed(4));
+        $('#sigma_Vdp-text').text(sigma_tg_Vdp);
 
         // 10 РОЗДІЛ
         var jorst_pruj = parseFloat($('#jorst-pruj').val());
@@ -684,6 +699,282 @@ $(document).ready(function() {
         $('#once_jorst-text').text(once_jorst.toFixed(4));
         var Rks = (0.05 * ((PP - Pnp) / 4)) + ((delta_f * once_jorst) / 2);
         $('#Rks-text').text(Rks.toFixed(4));
-    });
 
+        // 11 РОЗДІЛ
+        var Myks = Rks * vizok;
+        $('#Myks-text').text(Myks.toFixed(4));
+        var sigma_ks = Myks / WyA;
+        $('#sigma_ks-text').text(sigma_ks.toFixed(4));
+
+        // 12 РОЗДІЛ
+        var fst = ((PP - Pnp) / ekv_jorst);
+        $('#fst-text').text(fst.toFixed(4));
+
+        // Швидкість м/с
+        var ms_vd = Vd / 3.6;
+        $('#ms_vd-text').text(ms_vd.toFixed(4));
+        var ms_vdp = Vdp / 3.6;
+        $('#ms_vdp-text').text(ms_vdp.toFixed(4));
+        var ms_100 = 100 / 3.6;
+        $('#ms_100-text').text(ms_100.toFixed(4));
+
+        //Kd
+        var Kd = (0.006 / fst) + 0.004;
+        var Kd_Vd = Kd * Math.sqrt(ms_vd);
+        $('#Kd_Vd-text').text(Kd_Vd.toFixed(4));
+        var Kd_Vdp = Kd * Math.sqrt(ms_vdp);
+        $('#Kd_Vdp-text').text(Kd_Vdp.toFixed(4));
+        var Kd_100 = Kd * Math.sqrt(ms_100);
+        $('#Kd_100-text').text(Kd_100.toFixed(4));
+
+        //sigma-a
+        var sigma_a_vd = Kd_Vd * sigmav1;
+        $('#sigma_a_vd-text').text(sigma_a_vd.toFixed(4));
+        var sigma_a_vdp = Kd_Vdp * sigmav1;
+        $('#sigma_a_vdp-text').text(sigma_a_vdp.toFixed(4));
+        var sigma_a_100 = Kd_100 * sigmav1;
+        $('#sigma_a_100-text').text(sigma_a_100.toFixed(4));
+
+        // 13 РОЗДІЛ
+        //ДИНАМІЧНЕ НАВАНТАЖЕННЯ σа
+        var Kd0 = Kd * Math.sqrt(0)
+        var sigma_a_k = 0;
+        $('#sigma_a_k-text').text(sigma_a_k.toFixed(4));
+        var sigma_a_vd = Kd_Vd * sigmav1;
+        $('#sigma_a_vd1-text').text(sigma_a_vd.toFixed(4));
+        var sigma_a_vdp = Kd_Vdp * sigmav1;
+        $('#sigma_a_vdp1-text').text(sigma_a_vdp.toFixed(4));
+        var sigma_a_100 = Kd_100 * sigmav1;
+        $('#sigma_a_1001-text').text(sigma_a_100.toFixed(4));
+
+        var sigma1_t = sigmav1;
+        $('#sigma1_t-text').text(sigma1_t.toFixed(4));
+        var sigma2_t = sigmav1;
+        $('#sigma2_t-text').text(sigma2_t.toFixed(4));
+        var sigma3_t = sigmav1;
+        $('#sigma3_t-text').text(sigma3_t.toFixed(4));
+        var sigma4_t = sigmav1;
+        $('#sigma4_t-text').text(sigma4_t.toFixed(4));
+
+        //SigmaTG
+        //V = 0
+        var sigma_tg1_0 = sigma_tg_0 * 1000;
+        $('#sigma_tg1_0-text').text(sigma_tg1_0.toFixed(4));
+
+        //V = 100
+        var sigma_tg1_100 = sigma_tg_100 * 1000;
+        $('#sigma_tg1_100-text').text(sigma_tg1_100.toFixed(4));
+
+        //V = Vd
+        var sigma_tg1_Vd = sigma_tg_Vd * 1000;
+        $('#sigma_tg1_Vd-text').text(sigma_tg1_Vd.toFixed(4));
+
+        //V = Vdp
+        var sigma_tg1_Vdp = sigma_tg_Vdp * 1000;
+        $('#sigma_tg1_Vdp').text(sigma_tg1_Vdp.toFixed(4));
+
+        //SIGMA KS
+        var sigma_ks_t1 = sigma_ks * 1000;
+        $('#sigma_ks_t1').text(sigma_ks_t1.toFixed(4));
+        var sigma_ks_t2 = sigma_ks * 1000;
+        $('#sigma_ks_t2').text(sigma_ks_t2.toFixed(4));
+        var sigma_ks_t3 = sigma_ks * 1000;
+        $('#sigma_ks_t3').text(sigma_ks_t3.toFixed(4));
+        var sigma_ks_t4 = sigma_ks * 1000;
+        $('#sigma_ks_t4').text(sigma_ks_t4.toFixed(4));
+
+        //SIGMA KR
+        var sigma_kr_t1 = sigma_kr * 1000;
+        $('#sigma_kr_t1-text').text(sigma_kr_t1.toFixed(4));
+        var sigma_kr_t2 = sigma_kr * 1000;
+        $('#sigma_kr_t2-text').text(sigma_kr_t2.toFixed(4));
+        var sigma_kr_t3 = sigma_kr * 1000;
+        $('#sigma_kr_t3-text').text(sigma_kr_t3.toFixed(4));
+        var sigma_kr_t4 = sigma_kr * 1000;
+        $('#sigma_kr_t4-text').text(sigma_kr_t4.toFixed(4));
+
+        //Summa_sigma
+        var Summa_Sigma_t1 = sigma1_t + sigma_tg1_0 + sigma_ks_t1 + sigma_kr_t1;
+        $('#Summa_Sigma_t1').text(Summa_Sigma_t1.toFixed(4));
+
+        var Summa_Sigma_t2 = sigma1_t + sigma_tg1_Vd + sigma_ks_t2 + sigma_kr_t2;
+        $('#Summa_Sigma_t2').text(Summa_Sigma_t2.toFixed(4));
+
+        var Summa_Sigma_t3 = sigma3_t + sigma_tg1_Vdp + sigma_ks_t3 + sigma_kr_t3;
+        $('#Summa_Sigma_t3').text(Summa_Sigma_t3.toFixed(4));
+
+        var Summa_Sigma_t4 = sigma1_t + sigma_tg1_100 + sigma_ks_t2 + sigma_kr_t2;
+        $('#Summa_Sigma_t4').text(Summa_Sigma_t4.toFixed(4));
+
+        //Summa_Sigma_2
+        var Summa_Sigma_t11 = sigma_a_k + Summa_Sigma_t1;
+        $('#Summa_Sigma_t11').text(Summa_Sigma_t11.toFixed(4));
+
+        var Summa_Sigma_t22 = sigma_a_vd + Summa_Sigma_t2;
+        $('#Summa_Sigma_t22').text(Summa_Sigma_t22.toFixed(4));
+
+        var Summa_Sigma_t33 = sigma_a_vdp + Summa_Sigma_t3;
+        $('#Summa_Sigma_t33').text(Summa_Sigma_t33.toFixed(4));
+
+        var Summa_Sigma_t44 = sigma_a_100 + Summa_Sigma_t4;
+        $('#Summa_Sigma_t44').text(Summa_Sigma_t44.toFixed(4));
+
+        //14 РОЗДІЛ
+        var K1 = 1.1;
+        var K2 = 1.05;
+        var y = 0.7;
+        var mp = 0.8;
+        var BetaK = 1.1
+        var K = ((K1 * K2) / (y * mp)) * BetaK;
+        $('#K-text').text(K.toFixed(4));
+        var Fi_beta = 0.3;
+        var sigma_1 = 140;
+        var sigma_a = sigma_a_100;
+        var sigma_m = 1;
+        var np = sigma_1 / ((K * sigma_a_100) + (Fi_beta * Summa_Sigma_t4));
+        $('#np-text').text(np.toFixed(4));
+
+        //15 РОЗДІЛ
+        var pkp = 0.3;
+        var ptg = 0.8;
+        var sigma_my = sigmav1 + pkp * (sigma_kr_t4 + sigma_ks_t4) + ptg * sigma_tg1_100;
+        $('#sigma_my-text').text(sigma_my.toFixed(4));
+
+        var interval1 = parseFloat($('#interval1').val());
+        var interval2 = parseFloat($('#interval2').val());
+        var interval3 = parseFloat($('#interval3').val());
+        var interval4 = parseFloat($('#interval4').val());
+        var interval5 = parseFloat($('#interval5').val());
+
+        //Vic (м/с)
+        var Vic_10 = 10 / 3.6;
+        $('#Vic_10-text').text(Vic_10.toFixed(4));
+
+        var Vic_30 = 30 / 3.6;
+        $('#Vic_30-text').text(Vic_30.toFixed(4));
+
+        var Vic_50 = 50 / 3.6;
+        $('#Vic_50-text').text(Vic_50.toFixed(4));
+
+        var Vic_70 = 70 / 3.6;
+        $('#Vic_70-text').text(Vic_70.toFixed(4));
+
+        var Vic_90 = 90 / 3.6;
+        $('#Vic_90-text').text(Vic_90.toFixed(4));
+
+        var Vic_summa = Vic_10 + Vic_30 + Vic_50 + Vic_70 + Vic_90;
+        $('#Vic_summa-text').text(Vic_summa.toFixed(4));
+
+        //KD
+        var Kd = (0.006 / fst) + 0.004;
+
+        var Kd_second_10 = Kd * Math.sqrt(Vic_10);
+        $('#Kd_second_10-text').text(Kd_second_10.toFixed(4));
+
+        var Kd_second_30 = Kd * Math.sqrt(Vic_30);
+        $('#Kd_second_30-text').text(Kd_second_30.toFixed(4));
+
+        var Kd_second_50 = Kd * Math.sqrt(Vic_50);
+        $('#Kd_second_50-text').text(Kd_second_50.toFixed(4));
+
+        var Kd_second_70 = Kd * Math.sqrt(Vic_70);
+        $('#Kd_second_70-text').text(Kd_second_70.toFixed(4));
+
+        var Kd_second_90 = Kd * Math.sqrt(Vic_90);
+        $('#Kd_second_90-text').text(Kd_second_90.toFixed(4));
+
+        var Kd_second_summa = Kd_second_10 + Kd_second_30 + Kd_second_50 + Kd_second_70 + Kd_second_90;
+        $('#Kd_second_summa-text').text(Kd_second_summa.toFixed(4));
+
+        //SIGMA ai
+
+        var sigma_ai_10 = Kd_second_10 * sigmav1;
+        $('#sigma_ai_10-text').text(sigma_ai_10.toFixed(4));
+
+        var sigma_ai_30 = Kd_second_30 * sigmav1;
+        $('#sigma_ai_30-text').text(sigma_ai_30.toFixed(4));
+
+        var sigma_ai_50 = Kd_second_50 * sigmav1;
+        $('#sigma_ai_50-text').text(sigma_ai_50.toFixed(4));
+
+        var sigma_ai_70 = Kd_second_70 * sigmav1;
+        $('#sigma_ai_70-text').text(sigma_ai_70.toFixed(4));
+
+        var sigma_ai_90 = Kd_second_90 * sigmav1;
+        $('#sigma_ai_90-text').text(sigma_ai_90.toFixed(4));
+
+        var sigma_ai_summa = sigma_ai_10 + sigma_ai_30 + sigma_ai_50 + sigma_ai_70 + sigma_ai_90;
+        $('#sigma_ai_summa-text').text(sigma_ai_summa.toFixed(4));
+
+
+
+        //Pi
+        $('#interval1-text').text(interval1.toFixed(4));
+        $('#interval2-text').text(interval2.toFixed(4));
+        $('#interval3-text').text(interval3.toFixed(4));
+        $('#interval4-text').text(interval4.toFixed(4));
+        $('#interval5-text').text(interval5.toFixed(4));
+        var interval_summa = interval1 + interval2 + interval3 + interval4 + interval5;
+        $('#interval_summa-text').text(interval_summa.toFixed(4));
+
+        // Pi * Vic
+        var pi_vic_10 = Vic_10 * interval1;
+        $('#pi_vic_10-text').text(pi_vic_10.toFixed(4));
+
+        var pi_vic_30 = Vic_30 * interval2;
+        $('#pi_vic_30-text').text(pi_vic_30.toFixed(4));
+
+        var pi_vic_50 = Vic_50 * interval3;
+        $('#pi_vic_50-text').text(pi_vic_50.toFixed(4));
+
+        var pi_vic_70 = Vic_70 * interval4;
+        $('#pi_vic_70-text').text(pi_vic_70.toFixed(4));
+
+        var pi_vic_90 = Vic_90 * interval5;
+        $('#pi_vic_90-text').text(pi_vic_90.toFixed(4));
+
+        var pi_vic_summa = pi_vic_10 + pi_vic_30 + pi_vic_50 + pi_vic_70 + pi_vic_90;
+        $('#pi_vic_summa-text').text(pi_vic_summa.toFixed(4));
+
+        //Pi * sigma_m_ai
+        var pi_sigma_m_ai_10 = interval1 * Math.pow(sigma_ai_10, 8);
+        $('#pi_sigma_m_ai_10-text').text(pi_sigma_m_ai_10.toFixed(4));
+
+        var pi_sigma_m_ai_30 = interval2 * Math.pow(sigma_ai_30, 8);
+        $('#pi_sigma_m_ai_30-text').text(pi_sigma_m_ai_30.toFixed(4));
+
+        var pi_sigma_m_ai_50 = interval3 * Math.pow(sigma_ai_50, 8);
+        $('#pi_sigma_m_ai_50-text').text(pi_sigma_m_ai_50.toFixed(4));
+
+        var pi_sigma_m_ai_70 = interval4 * Math.pow(sigma_ai_70, 8);
+        $('#pi_sigma_m_ai_70-text').text(pi_sigma_m_ai_70.toFixed(4));
+
+        var pi_sigma_m_ai_90 = interval5 * Math.pow(sigma_ai_90, 8);
+        $('#pi_sigma_m_ai_90-text').text(pi_sigma_m_ai_90.toFixed(4));
+
+        var pi_sigma_m_ai_summa = pi_sigma_m_ai_10 + pi_sigma_m_ai_30 + pi_sigma_m_ai_50 + pi_sigma_m_ai_70 + pi_sigma_m_ai_90;
+        $('#pi_sigma_m_ai_summa-text').text(pi_sigma_m_ai_summa.toFixed(4));
+
+        //15.12
+        var V_cp = (10 * interval1) + (30 * interval2) + (50 * interval3) + (70 * interval4) + (90 * interval5);
+
+        $('#V_cp-text').text(V_cp.toFixed(4));
+
+        //15.10
+        var Tp = (200000 / V_cp);
+        $('#Tp-text').text(Tp.toFixed(4));
+        var N_summa = Tp * 30 * 2;
+        $('#N_summa-text').text(N_summa.toFixed(4));
+
+        //15.13
+        var sigma_apr_f = (N_summa / 2700000) * (interval_summa * pi_sigma_m_ai_summa);
+        var sigma_apr = Math.pow(sigma_apr_f, 1 / 8);
+        $('#sigma_apr-text').text(sigma_apr.toFixed(4));
+
+
+
+        //16 розділ
+        n_hp = sigma_1 / ((K * sigma_apr) + (0.3 * sigma_my));
+        $('#n_hp-text').text(n_hp.toFixed(4));
+    });
 });
