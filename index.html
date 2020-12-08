@@ -25,9 +25,9 @@
                     <div style="text-align: center;">
                         <button class="data-button" style="margin-right: 0.5vw;" id="var-data">Ввести дані варіанту</button>
                         <button class="data-button" style="margin-right: 0.5vw;" id="var-data-bodia">Ввести дані варіанту Боді</button>
-                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-vlad">Ввести дані варіанту Влада</button>
-                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-sanya">Ввести дані варіанту Сані</button>
                         <button class="data-button" style="margin-right: 0.5vw;" id="var-data-sergo">Ввести дані варіанту Серго</button>
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-sanya">Ввести дані варіанту Сані</button>
+                        <button class="data-button" style="margin-right: 0.5vw;" id="var-data-dimon">Ввести дані варіанту Дімона</button>
                     </div>
                 </div>
                 <div class="data-input">
@@ -484,6 +484,210 @@
                 <p style="color: white; font-size: 1vw;">Екв. жорсткість = <span id="ekv_jorst-text"></span></p>
                 <p style="color: white; font-size: 1vw;">Же1 = <span id="once_jorst-text"></span></p>
                 <p style="color: white; font-size: 1vw;">Rкс = <span id="Rks-text"></span></p>
+            </div>
+            <div class="rozdil-11">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 11</p>
+                <p style="color: white; font-size: 1vw;">Myks = <span id="Myks-text"></span></p>
+                <p style="color: white; font-size: 1vw;">σкс = <span id="sigma_ks-text"></span></p>
+            </div>
+            <div class="rozdil-12">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 12</p>
+                <p style="color: white; font-size: 1vw;">fst = <span id="fst-text"></span></p>
+                <table style="color: white;">
+                    <tr>
+                        <td>Швидкість руху локомотива, км/г</td>
+                        <td>Швидкість руху локомотива, м/с</td>
+                        <td>Коефіцієнт вертикальної динаміки К_д</td>
+                        <td>Амплітуда напруження σ_а, МПа </td>
+                    </tr>
+                    <tr>
+                        <td>Vd = <span id="Vd-text"></span></td>
+                        <td><span id="ms_vd-text"></span></td>
+                        <td><span id="Kd_Vd-text"></span></td>
+                        <td><span id="sigma_a_vd-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Vdp = <span id="Vdp-text"></span></td>
+                        <td><span id="ms_vdp-text"></span></td>
+                        <td><span id="Kd_Vdp-text"></span></td>
+                        <td><span id="sigma_a_vdp-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Vk=100</td>
+                        <td><span id="ms_100-text"></span></td>
+                        <td><span id="Kd_100-text"></span></td>
+                        <td><span id="sigma_a_100-text"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="rozdil-13">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 13</p>
+                <table style="color: white;">
+                    <tr>
+                        <td>№</td>
+                        <td>Вид навантаження</td>
+                        <td>Позначення</td>
+                        <td>Рушання з місця</td>
+                        <td>Рух у кривій без підвищення рейки</td>
+                        <td>Рух у кривій з підвищенням рейки</td>
+                        <td>Рух з конс-трукційною швидкістю</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Вагове навантаження</td>
+                        <td>σу1</td>
+                        <td><span id="sigma1_t-text"></span></td>
+                        <td><span id="sigma2_t-text"></span></td>
+                        <td><span id="sigma3_t-text"></span></td>
+                        <td><span id="sigma4_t-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Кососиметричне навантаження</td>
+                        <td>σкс</td>
+                        <td><span id="sigma_ks_t1"></span></td>
+                        <td><span id="sigma_ks_t2"></span></td>
+                        <td><span id="sigma_ks_t3"></span></td>
+                        <td><span id="sigma_ks_t4"></span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Навантаження при русі в кривій</td>
+                        <td>σкр</td>
+                        <td><span id="sigma_kr_t1-text"></span></td>
+                        <td><span id="sigma_kr_t2-text"></span></td>
+                        <td><span id="sigma_kr_t3-text"></span></td>
+                        <td><span id="sigma_kr_t4-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Навантаження в тяговому режимі</td>
+                        <td>σтг</td>
+                        <td><span id="sigma_tg1_0-text"></span></td>
+                        <td><span id="sigma_tg1_Vd-text"></span></td>
+                        <td><span id="sigma_tg1_Vdp"></span></td>
+                        <td><span id="sigma_tg1_100-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Сумарне статичне навантаження</td>
+                        <td>σm∑</td>
+                        <td><span id="Summa_Sigma_t1"></span></td>
+                        <td><span id="Summa_Sigma_t2"></span></td>
+                        <td><span id="Summa_Sigma_t3"></span></td>
+                        <td><span id="Summa_Sigma_t4"></span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Динамічне навантаження</td>
+                        <td>σа</td>
+                        <td><span id="sigma_a_k-text"></span></td>
+                        <td><span id="sigma_a_vd1-text"></span></td>
+                        <td><span id="sigma_a_vdp1-text"></span></td>
+                        <td><span id="sigma_a_1001-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Сумарне максимальне навантаження</td>
+                        <td>σmах∑</td>
+                        <td><span id="Summa_Sigma_t11"></span></td>
+                        <td><span id="Summa_Sigma_t22"></span></td>
+                        <td><span id="Summa_Sigma_t33"></span></td>
+                        <td><span id="Summa_Sigma_t44"></span></td>
+                    </tr>
+                </table>
+                <p style="color: white; position: relative; top: 2vw;"> Візок до експлаутації допускається.</p>
+            </div>
+            <div class="rozdil-14">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 14</p>
+                <p style="color: white; font-size: 1vw;">K = <span id="K-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Np = <span id="np-text"></span></p>
+            </div>
+            <div class="rozdil-15">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 15</p>
+                <p style="color: white; font-size: 1vw;">σmу = <span id="sigma_my-text"></span></p>
+
+                <table style="color: white;">
+                    <tr>
+                        <td>№</td>
+                        <td>Vi, км/г</td>
+                        <td>Vic</td>
+                        <td>pi</td>
+                        <td>pi * Vic</td>
+                        <td>Kді</td>
+                        <td>σаі, МПа</td>
+                        <td>pi * σаі^m</td>
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>10</td>
+                        <td><span id="Vic_10-text"></span></td>
+                        <td><span id="interval1-text"></span></td>
+                        <td><span id="pi_vic_10-text"></span></td>
+                        <td><span id="Kd_second_10-text"></span></td>
+                        <td><span id="sigma_ai_10-text"></span></td>
+                        <td><span id="pi_sigma_m_ai_10-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>30</td>
+                        <td><span id="Vic_30-text"></span></td>
+                        <td><span id="interval2-text"></span></td>
+                        <td><span id="pi_vic_30-text"></span></td>
+                        <td><span id="Kd_second_30-text"></span></td>
+                        <td><span id="sigma_ai_30-text"></span></td>
+                        <td><span id="pi_sigma_m_ai_30-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>50</td>
+                        <td><span id="Vic_50-text"></span></td>
+                        <td><span id="interval3-text"></span></td>
+                        <td><span id="pi_vic_50-text"></span></td>
+                        <td><span id="Kd_second_50-text"></span></td>
+                        <td><span id="sigma_ai_50-text"></span></td>
+                        <td><span id="pi_sigma_m_ai_50-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>70</td>
+                        <td><span id="Vic_70-text"></span></td>
+                        <td><span id="interval4-text"></span></td>
+                        <td><span id="pi_vic_70-text"></span></td>
+                        <td><span id="Kd_second_70-text"></span></td>
+                        <td><span id="sigma_ai_70-text"></span></td>
+                        <td><span id="pi_sigma_m_ai_70-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>90</td>
+                        <td><span id="Vic_90-text"></span></td>
+                        <td><span id="interval5-text"></span></td>
+                        <td><span id="pi_vic_90-text"></span></td>
+                        <td><span id="Kd_second_90-text"></span></td>
+                        <td><span id="sigma_ai_90-text"></span></td>
+                        <td><span id="pi_sigma_m_ai_90-text"></span></td>
+                    </tr>
+                    <tr>
+                        <td>∑</td>
+                        <td>250</td>
+                        <td><span id="Vic_summa-text"></span></td>
+                        <td><span id="interval_summa-text"></span></td>
+                        <td><span id="pi_vic_summa-text"></span></td>
+                        <td><span id="Kd_second_summa-text"></span></td>
+                        <td><span id="sigma_ai_summa-text"></span></td>
+                        <td><span id="pi_sigma_m_ai_summa-text"></span></td>
+                    </tr>
+                </table>
+                <p style="color: white; font-size: 1vw;">Vср = <span id="V_cp-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Nsumma = <span id="N_summa-text"></span></p>
+                <p style="color: white; font-size: 1vw;">Tр = <span id="Tp-text"></span></p>
+                <p style="color: white; font-size: 1vw;">σapr = <span id="sigma_apr-text"></span></p>
+            </div>
+            <div class="rozdil-16">
+                <p class="text-center" style="color: white; font-size: 2vw; position: relative; top: 0vw; right: 10vw;">Розділ 16</p>
+                <p style="color: white; font-size: 1vw;">Nhp = <span id="n_hp-text"></span></p>
             </div>
     </section>
 </body>
